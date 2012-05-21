@@ -1,16 +1,52 @@
 #pragma once
 
+/**
+  @class Set
+  хранение множества с данными шаблонного типа
+  */
+
 template <typename T>
 class Set
 {
 public:
     Set() : value(0), next(NULL), head(NULL), tmpGlobal(NULL) {}
     ~Set();
+
+    /**
+    @brief для добавления эл-та в множество
+    @param T добавляемый элемент (тип)
+    */
     void add(T);
+
+    /**
+    @brief для удаления эл-та из множества
+    @param T удаляемый элемент (тип)
+    */
     void del(T);
+
+    /**
+    @brief является ли множество пустым
+    */
     bool isEmpty();
+
+    /**
+    @brief для поиска элемента в множестве
+    @param T разыскиваемый элемент (тип)
+    */
     bool find(T);
+
+    /**
+    @brief для пересечение множеств
+    @param a одно из пересекаемых множеств
+    @param b одно из пересекаемых множеств
+    */
     void intersect(Set<T> *a, Set<T> *b);
+
+    /**
+    @brief для объединение множеств
+    @param a одно из объединяемых множеств
+    @param b одно из объединяемых множеств
+    */
     void unit(Set<T> *a, Set<T> *b);
 private:
     bool goToNext();

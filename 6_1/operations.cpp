@@ -6,7 +6,6 @@ int Operations::calculate()
  {
      int a = left->calculate();
      int b = right->calculate();
-     //int return 0;
 
      switch (operation)
      {
@@ -19,6 +18,7 @@ int Operations::calculate()
      case '/':
          return a / b;
      }
+     return 0;
 
  }
   void Operations::print()
