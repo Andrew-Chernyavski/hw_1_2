@@ -10,4 +10,3 @@ SOURCES += main.cpp \
 HEADERS += \
     bag.h \
     bagtest.h
-

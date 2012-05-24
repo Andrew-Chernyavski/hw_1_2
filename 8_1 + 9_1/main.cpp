@@ -27,5 +27,6 @@ int main()
 
     bagTest test;
     QTest::qExec(&test);
+    return 0;
 }
 

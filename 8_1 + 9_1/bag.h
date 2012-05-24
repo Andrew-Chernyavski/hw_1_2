@@ -1,4 +1,6 @@
 #pragma once
+#include "limits.h"
+#include <iostream>
 
 /**
   @class Bag
@@ -9,7 +11,7 @@ class Bag
 {
 public:
     Bag();
-    ~Bag();
+    ~Bag() {delete left; delete right;}
 
     /**
           @brief добавление значения
@@ -30,18 +32,41 @@ public:
     bool isValue(int value);
 
     /**
-          @brief обход дерева
+          @brief вывод дерева
           */
-    void print();
+    void print() {Bag *tmp = this; printdown(tmp); std::cout << "\n";}
 
     /**
           @brief рекурсивный способ обхода дерева
           @param tmp - вершина дерева
           */
     void printdown(Bag *tmp);
+
+    class Iterator
+        {
+        public:
+            Iterator() {tmp = NULL; head = NULL; currentnumber = 0;}
+            Iterator(Bag *tmp, Bag *head1);
+            int returnValue() { if (tmp != NULL) return tmp->value; else return INT_MIN;}
+            int returnnumber() { if (tmp != NULL) return tmp->number; else return INT_MIN;}
+            Bag* returnBag(){return tmp;}
+            void sum();
+            bool equal(Iterator *tmp);
+        private:
+            Bag *tmp;
+            Bag *head;
+            int currentnumber;
+            void iter(Bag *tmp, int value);
+            int next;
+            Bag* rem;
+        };
+    Iterator goOn();
+    Iterator laster();
+
 private:
     Bag *left;
     Bag *right;
     int value;
     int number;
+    Bag *head;
 };

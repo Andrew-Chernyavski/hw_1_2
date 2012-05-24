@@ -1,15 +1,15 @@
 #pragma once
+#include <QObject>
 #include <QtCore/QObject>
 #include <QtTest/QtTest>
 #include "bag.h"
-#include <QObject>
 
 class bagTest : public QObject
 {
     Q_OBJECT
 public:
     explicit bagTest(QObject *parent = 0) {}
-    
+
 private slots:
 
     void init()
