@@ -43,6 +43,7 @@ void MainWindow::clicked(int index)
         button->setText("O");
      if (mas->victory(index / 3, index % 3))
      {
+        mas->theEnd =true;
          ui->label->setText(button->text() + " win");
      }
 }

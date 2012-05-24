@@ -6,10 +6,13 @@ Massiv::Massiv()
         for (int j = 0; j < 3; j++)
             mas[i][j] = 0;
     lastCross = true;
+    theEnd = false;
 }
 
 int Massiv::click(int a, int b)
 {
+    if (theEnd)
+        return 0;
     if (mas[a][b] == 0)
     {
         lastCross = !lastCross;
